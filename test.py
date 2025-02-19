@@ -72,7 +72,9 @@ def main():
     # Initialize recommendation algorithms
     recommenders = {}
     recommenders['random'] = basic.Random()
-    recommenders['personal'] = Recommender.adapt(basic.TopN(basic.Bias()))
+    recommenders['most_popular'] = basic.MostPopular()
+    recommenders['personal_topn'] = Recommender.adapt(basic.TopN(basic.Bias()))
+    recommenders['personal_knn'] = Recommender.adapt(basic.KNN(basic.Bias()))
 
     # Parameters
     n_iterations = 10
